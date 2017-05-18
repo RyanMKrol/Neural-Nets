@@ -10,9 +10,22 @@
 #define Matrix_hpp
 
 #include <stdio.h>
+#include <vector>
 
-class Matrix {
+using namespace std;
+
+template <class T> class Matrix {
     
+    vector<vector<T>> arr;
+    
+    public:
+        void transpose();
+        void add(Matrix<T>);
+        void scalarMult(double);
+        void mult(Matrix<T>);
+        void hadamardMult(Matrix<T>);
+        void kroneckerMult(Matrix<T>);
+        void horizontalMatrixConcat();
 };
 
 #endif /* Matrix_hpp */
