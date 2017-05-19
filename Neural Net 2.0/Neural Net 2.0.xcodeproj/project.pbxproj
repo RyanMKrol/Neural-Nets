@@ -7,15 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		CD1EA9BD1ECF6C8F00A84559 /* DataSet.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CD1EA9BB1ECF6C8F00A84559 /* DataSet.cpp */; };
-		CD1EA9C01ECF6D3D00A84559 /* NetSet.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CD1EA9BE1ECF6D3D00A84559 /* NetSet.cpp */; };
-		CDC8A9EE1ECE40ED0041CACA /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CDC8A9ED1ECE40ED0041CACA /* main.cpp */; };
-		CDC8A9F61ECE41560041CACA /* Network.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CDC8A9F41ECE41560041CACA /* Network.cpp */; };
-		CDC8A9F91ECE42020041CACA /* Matrix.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CDC8A9F71ECE42020041CACA /* Matrix.cpp */; };
+		CDE4292F1ECFA24E00F46533 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CDE4292E1ECFA24E00F46533 /* main.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		CDC8A9E81ECE40ED0041CACA /* CopyFiles */ = {
+		CDE429291ECFA24E00F46533 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = /usr/share/man/man1/;
@@ -27,20 +23,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		CD1EA9BB1ECF6C8F00A84559 /* DataSet.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DataSet.cpp; sourceTree = "<group>"; };
-		CD1EA9BC1ECF6C8F00A84559 /* DataSet.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = DataSet.hpp; sourceTree = "<group>"; };
-		CD1EA9BE1ECF6D3D00A84559 /* NetSet.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = NetSet.cpp; sourceTree = "<group>"; };
-		CD1EA9BF1ECF6D3D00A84559 /* NetSet.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = NetSet.hpp; sourceTree = "<group>"; };
-		CDC8A9EA1ECE40ED0041CACA /* Neural Net Implementation */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Neural Net Implementation"; sourceTree = BUILT_PRODUCTS_DIR; };
-		CDC8A9ED1ECE40ED0041CACA /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
-		CDC8A9F41ECE41560041CACA /* Network.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Network.cpp; sourceTree = "<group>"; };
-		CDC8A9F51ECE41560041CACA /* Network.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Network.hpp; sourceTree = "<group>"; };
-		CDC8A9F71ECE42020041CACA /* Matrix.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Matrix.cpp; sourceTree = "<group>"; };
-		CDC8A9F81ECE42020041CACA /* Matrix.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Matrix.hpp; sourceTree = "<group>"; };
+		CDE4292B1ECFA24E00F46533 /* Neural Net 2.0 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Neural Net 2.0"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CDE4292E1ECFA24E00F46533 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		CDC8A9E71ECE40ED0041CACA /* Frameworks */ = {
+		CDE429281ECFA24E00F46533 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -50,107 +38,95 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		CDC8A9E11ECE40ED0041CACA = {
+		CDE429221ECFA24E00F46533 = {
 			isa = PBXGroup;
 			children = (
-				CDC8A9EC1ECE40ED0041CACA /* Neural Net Implementation */,
-				CDC8A9EB1ECE40ED0041CACA /* Products */,
+				CDE4292D1ECFA24E00F46533 /* Neural Net 2.0 */,
+				CDE4292C1ECFA24E00F46533 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		CDC8A9EB1ECE40ED0041CACA /* Products */ = {
+		CDE4292C1ECFA24E00F46533 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				CDC8A9EA1ECE40ED0041CACA /* Neural Net Implementation */,
+				CDE4292B1ECFA24E00F46533 /* Neural Net 2.0 */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		CDC8A9EC1ECE40ED0041CACA /* Neural Net Implementation */ = {
+		CDE4292D1ECFA24E00F46533 /* Neural Net 2.0 */ = {
 			isa = PBXGroup;
 			children = (
-				CDC8A9ED1ECE40ED0041CACA /* main.cpp */,
-				CDC8A9F41ECE41560041CACA /* Network.cpp */,
-				CDC8A9F51ECE41560041CACA /* Network.hpp */,
-				CDC8A9F71ECE42020041CACA /* Matrix.cpp */,
-				CDC8A9F81ECE42020041CACA /* Matrix.hpp */,
-				CD1EA9BB1ECF6C8F00A84559 /* DataSet.cpp */,
-				CD1EA9BC1ECF6C8F00A84559 /* DataSet.hpp */,
-				CD1EA9BE1ECF6D3D00A84559 /* NetSet.cpp */,
-				CD1EA9BF1ECF6D3D00A84559 /* NetSet.hpp */,
+				CDE4292E1ECFA24E00F46533 /* main.cpp */,
 			);
-			path = "Neural Net Implementation";
+			path = "Neural Net 2.0";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		CDC8A9E91ECE40ED0041CACA /* Neural Net Implementation */ = {
+		CDE4292A1ECFA24E00F46533 /* Neural Net 2.0 */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = CDC8A9F11ECE40ED0041CACA /* Build configuration list for PBXNativeTarget "Neural Net Implementation" */;
+			buildConfigurationList = CDE429321ECFA24E00F46533 /* Build configuration list for PBXNativeTarget "Neural Net 2.0" */;
 			buildPhases = (
-				CDC8A9E61ECE40ED0041CACA /* Sources */,
-				CDC8A9E71ECE40ED0041CACA /* Frameworks */,
-				CDC8A9E81ECE40ED0041CACA /* CopyFiles */,
+				CDE429271ECFA24E00F46533 /* Sources */,
+				CDE429281ECFA24E00F46533 /* Frameworks */,
+				CDE429291ECFA24E00F46533 /* CopyFiles */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = "Neural Net Implementation";
-			productName = "Neural Net Implementation";
-			productReference = CDC8A9EA1ECE40ED0041CACA /* Neural Net Implementation */;
+			name = "Neural Net 2.0";
+			productName = "Neural Net 2.0";
+			productReference = CDE4292B1ECFA24E00F46533 /* Neural Net 2.0 */;
 			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		CDC8A9E21ECE40ED0041CACA /* Project object */ = {
+		CDE429231ECFA24E00F46533 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0830;
 				ORGANIZATIONNAME = "Ryan Krol";
 				TargetAttributes = {
-					CDC8A9E91ECE40ED0041CACA = {
+					CDE4292A1ECFA24E00F46533 = {
 						CreatedOnToolsVersion = 8.3.2;
 						ProvisioningStyle = Automatic;
 					};
 				};
 			};
-			buildConfigurationList = CDC8A9E51ECE40ED0041CACA /* Build configuration list for PBXProject "Neural Net Implementation" */;
+			buildConfigurationList = CDE429261ECFA24E00F46533 /* Build configuration list for PBXProject "Neural Net 2.0" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 			);
-			mainGroup = CDC8A9E11ECE40ED0041CACA;
-			productRefGroup = CDC8A9EB1ECE40ED0041CACA /* Products */;
+			mainGroup = CDE429221ECFA24E00F46533;
+			productRefGroup = CDE4292C1ECFA24E00F46533 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				CDC8A9E91ECE40ED0041CACA /* Neural Net Implementation */,
+				CDE4292A1ECFA24E00F46533 /* Neural Net 2.0 */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		CDC8A9E61ECE40ED0041CACA /* Sources */ = {
+		CDE429271ECFA24E00F46533 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CDC8A9F91ECE42020041CACA /* Matrix.cpp in Sources */,
-				CDC8A9F61ECE41560041CACA /* Network.cpp in Sources */,
-				CD1EA9BD1ECF6C8F00A84559 /* DataSet.cpp in Sources */,
-				CD1EA9C01ECF6D3D00A84559 /* NetSet.cpp in Sources */,
-				CDC8A9EE1ECE40ED0041CACA /* main.cpp in Sources */,
+				CDE4292F1ECFA24E00F46533 /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		CDC8A9EF1ECE40ED0041CACA /* Debug */ = {
+		CDE429301ECFA24E00F46533 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -198,7 +174,7 @@
 			};
 			name = Debug;
 		};
-		CDC8A9F01ECE40ED0041CACA /* Release */ = {
+		CDE429311ECFA24E00F46533 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -239,14 +215,14 @@
 			};
 			name = Release;
 		};
-		CDC8A9F21ECE40ED0041CACA /* Debug */ = {
+		CDE429331ECFA24E00F46533 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
 		};
-		CDC8A9F31ECE40ED0041CACA /* Release */ = {
+		CDE429341ECFA24E00F46533 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -256,25 +232,24 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		CDC8A9E51ECE40ED0041CACA /* Build configuration list for PBXProject "Neural Net Implementation" */ = {
+		CDE429261ECFA24E00F46533 /* Build configuration list for PBXProject "Neural Net 2.0" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				CDC8A9EF1ECE40ED0041CACA /* Debug */,
-				CDC8A9F01ECE40ED0041CACA /* Release */,
+				CDE429301ECFA24E00F46533 /* Debug */,
+				CDE429311ECFA24E00F46533 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		CDC8A9F11ECE40ED0041CACA /* Build configuration list for PBXNativeTarget "Neural Net Implementation" */ = {
+		CDE429321ECFA24E00F46533 /* Build configuration list for PBXNativeTarget "Neural Net 2.0" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				CDC8A9F21ECE40ED0041CACA /* Debug */,
-				CDC8A9F31ECE40ED0041CACA /* Release */,
+				CDE429331ECFA24E00F46533 /* Debug */,
+				CDE429341ECFA24E00F46533 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = CDC8A9E21ECE40ED0041CACA /* Project object */;
+	rootObject = CDE429231ECFA24E00F46533 /* Project object */;
 }
