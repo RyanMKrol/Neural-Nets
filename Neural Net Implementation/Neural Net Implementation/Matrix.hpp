@@ -14,18 +14,20 @@
 
 using namespace std;
 
-template <class T> class Matrix {
+class Matrix {
     
-    vector<vector<T>> arr;
+    vector<vector<double>> arr;
     
     public:
-        void transpose();
-        void add(Matrix<T>);
-        void scalarMult(double);
-        void mult(Matrix<T>);
-        void hadamardMult(Matrix<T>);
-        void kroneckerMult(Matrix<T>);
-        void horizontalMatrixConcat();
+    vector<vector<double>> getUnderlying();
+    Matrix transpose();
+    Matrix add(Matrix);
+    Matrix scalarMult(double);
+    Matrix mult(Matrix);
+    Matrix hadamardMult(Matrix);
+    Matrix kroneckerMult(Matrix);
+    Matrix horizontalMatrixConcat();
+    Matrix(vector<vector<double>>);
 };
 
 #endif /* Matrix_hpp */
