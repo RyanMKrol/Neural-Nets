@@ -10,17 +10,27 @@
 #define Network_hpp
 
 #include <stdio.h>
+#include <string>
 #include "Matrix.hpp"
+#include "DataSet.hpp"
 
 class Network{
     
     int numOutputClasses;
+    DataSet *data;
+    
 public:
 
     int outputToClass(vector<double>);
     vector<double> classToOutput(int);
-    Network(int);
-    
+    void loadData(string,string,string);
+    Network(int, string, string, string);
+    ~Network();
+};
+
+#endif /* Network_hpp */
+
+
 //    train
 //    load data
 //    feed-forward
@@ -30,6 +40,3 @@ public:
 //    class to output
 //    activation
 //    activation derivative
-};
-
-#endif /* Network_hpp */

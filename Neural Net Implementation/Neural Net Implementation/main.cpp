@@ -26,9 +26,9 @@ int main(int argc, const char * argv[]) {
     Matrix*three_m = new Matrix(three);
     
     Matrix other = one_m->kroneckerMult(*two_m);
-    
-    Network netThing;
     cout << netThing.outputToClass(*three_m) << endl;
 
+    
+    
     return 0;
 }

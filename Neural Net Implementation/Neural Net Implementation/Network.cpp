@@ -8,9 +8,13 @@
 
 #include "Network.hpp"
 
-
-Network::Network(int numClasses){
+Network::Network(int numClasses, string trainingLoc, string validationLoc, string testingLoc){
     this->numOutputClasses = numClasses;
+    this->data = new DataSet(trainingLoc, validationLoc, testingLoc);
+}
+
+Network::~Network(){
+    free(this->data);
 }
 
 //assumes the matrix has 1 row
@@ -32,4 +36,12 @@ vector<double> Network::classToOutput(int classNum) {
     
     
     return result;
+}
+
+void loadData(string trainingDataLoc, string validationDataLoc, string testingDataLoc){
+    
+    
+    
+    
+    
 }

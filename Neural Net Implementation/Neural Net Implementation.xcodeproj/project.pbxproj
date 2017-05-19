@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CD1EA9BD1ECF6C8F00A84559 /* DataSet.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CD1EA9BB1ECF6C8F00A84559 /* DataSet.cpp */; };
+		CD1EA9C01ECF6D3D00A84559 /* NetSet.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CD1EA9BE1ECF6D3D00A84559 /* NetSet.cpp */; };
 		CDC8A9EE1ECE40ED0041CACA /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CDC8A9ED1ECE40ED0041CACA /* main.cpp */; };
 		CDC8A9F61ECE41560041CACA /* Network.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CDC8A9F41ECE41560041CACA /* Network.cpp */; };
 		CDC8A9F91ECE42020041CACA /* Matrix.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CDC8A9F71ECE42020041CACA /* Matrix.cpp */; };
@@ -25,6 +27,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		CD1EA9BB1ECF6C8F00A84559 /* DataSet.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DataSet.cpp; sourceTree = "<group>"; };
+		CD1EA9BC1ECF6C8F00A84559 /* DataSet.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = DataSet.hpp; sourceTree = "<group>"; };
+		CD1EA9BE1ECF6D3D00A84559 /* NetSet.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = NetSet.cpp; sourceTree = "<group>"; };
+		CD1EA9BF1ECF6D3D00A84559 /* NetSet.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = NetSet.hpp; sourceTree = "<group>"; };
 		CDC8A9EA1ECE40ED0041CACA /* Neural Net Implementation */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Neural Net Implementation"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDC8A9ED1ECE40ED0041CACA /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		CDC8A9F41ECE41560041CACA /* Network.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Network.cpp; sourceTree = "<group>"; };
@@ -68,6 +74,10 @@
 				CDC8A9F51ECE41560041CACA /* Network.hpp */,
 				CDC8A9F71ECE42020041CACA /* Matrix.cpp */,
 				CDC8A9F81ECE42020041CACA /* Matrix.hpp */,
+				CD1EA9BB1ECF6C8F00A84559 /* DataSet.cpp */,
+				CD1EA9BC1ECF6C8F00A84559 /* DataSet.hpp */,
+				CD1EA9BE1ECF6D3D00A84559 /* NetSet.cpp */,
+				CD1EA9BF1ECF6D3D00A84559 /* NetSet.hpp */,
 			);
 			path = "Neural Net Implementation";
 			sourceTree = "<group>";
@@ -131,6 +141,8 @@
 			files = (
 				CDC8A9F91ECE42020041CACA /* Matrix.cpp in Sources */,
 				CDC8A9F61ECE41560041CACA /* Network.cpp in Sources */,
+				CD1EA9BD1ECF6C8F00A84559 /* DataSet.cpp in Sources */,
+				CD1EA9C01ECF6D3D00A84559 /* NetSet.cpp in Sources */,
 				CDC8A9EE1ECE40ED0041CACA /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

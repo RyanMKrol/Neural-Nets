@@ -29,6 +29,7 @@ class Matrix {
     Matrix kroneckerMult(Matrix);
     Matrix horizontalMatrixConcat(Matrix);
     Matrix(vector<vector<double>>);
+    Matrix();
 };
 
 #endif /* Matrix_hpp */

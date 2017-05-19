@@ -13,6 +13,11 @@ Matrix::Matrix(vector<vector<double>> newArr){
     this->arr = newArr;
 }
 
+Matrix::Matrix(){
+    vector<vector<double>> newVector;
+    this->arr = newVector;
+}
+
 //get the underlying vector
 vector<vector<double>> Matrix::getUnderlying(){
     return this->arr;
