@@ -27,7 +27,7 @@ class Matrix {
     Matrix mult(Matrix);
     Matrix hadamardMult(Matrix);
     Matrix kroneckerMult(Matrix);
-    Matrix horizontalMatrixConcat();
+    Matrix horizontalMatrixConcat(Matrix);
     Matrix(vector<vector<double>>);
 };
 

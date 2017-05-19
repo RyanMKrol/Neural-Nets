@@ -18,6 +18,7 @@ vector<vector<double>> Matrix::getUnderlying(){
     return this->arr;
 }
 
+//returns the transposed matrix
 Matrix Matrix::transpose(){
     
     int rows = (int)this->arr.size();
@@ -79,8 +80,6 @@ Matrix Matrix::mult(Matrix b){
         for(int j = 0; j < newCols; j++){
             val = 0;
             for(int k = 0; k < this->arr[0].size();k++){
-                cout << this->arr[i][k] << endl;
-                cout << other[k][j] << endl;
                 val += this->arr[i][k] * other[k][j];
             }
             result[i][j] = val;
@@ -89,7 +88,58 @@ Matrix Matrix::mult(Matrix b){
     
     return Matrix(result);
 }
-//Matrix mult(Matrix);
-//Matrix hadamardMult(Matrix);
+
+//result of doing a hadamard multiply on this and another matrix
+Matrix Matrix::hadamardMult(Matrix b){
+    
+    vector<vector<double>> other = b.getUnderlying();
+    vector<vector<double>> result (this->arr.size(), vector<double>(this->arr[0].size()));
+    
+    for(int i = 0; i < this->arr.size(); i++){
+        for(int j = 0; j < this->arr[0].size(); j++){
+            result[i][j] = this->arr[i][j] * other[i][j];
+        }
+    }
+    
+    return Matrix(result);
+}
+
+// this could be a bit trickier, i'll try it tomorrow
+//Matrix Matrix::kroneckerMult(Matrix b){
+//    
+//    vector<vector<double>> other = b.getUnderlying();
+//    vector<vector<double>> result (this->arr.size(), vector<double>(this->arr[0].size()));
+//    
+//    for(int i = 0; i < this->arr.size(); i++){
+//        for(int j = 0; j < this->arr[0].size(); j++){
+//            result[i][j] = this->arr[i][j] * other[i][j];
+//        }
+//    }
+//    
+//    return Matrix(result);
+//}
+
+//result of doing a hadamard multiply on this and another matrix
+
+//concatenates the rows of two matrices
+Matrix Matrix::horizontalMatrixConcat(Matrix b){
+    
+    vector<vector<double>> other = b.getUnderlying();
+    vector<vector<double>> result (this->arr.size(), vector<double>(this->arr[0].size() + other[0].size()));
+    
+    for(int i = 0; i < this->arr.size();i++){
+        for(int j = 0; j < this->arr[0].size(); j++){
+            result[i][j] = this->arr[i][j];
+        }
+    }
+    
+    for(int i = 0; i < other.size();i++){
+        for(int j = (int)this->arr[0].size(); j < this->arr[0].size() + other[0].size(); j++){
+            result[i][j] = other[i][j - this->arr[0].size()];
+        }
+    }
+    
+    return Matrix(result);
+}
+
 //Matrix kroneckerMult(Matrix);
-//Matrix horizontalMatrixConcat();
