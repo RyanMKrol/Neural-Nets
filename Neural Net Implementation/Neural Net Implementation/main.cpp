@@ -17,12 +17,12 @@ int main(int argc, const char * argv[]) {
     std::cout << "Hello, World!\n";
     
     vector<vector<double>> one = {{1,2},{3,4}};
-    vector<vector<double>> two = {{2,2},{2,2}};
+    vector<vector<double>> two = {{0,5},{6,7}};
     
     Matrix*one_m = new Matrix(one);
     Matrix*two_m = new Matrix(two);
     
-    Matrix other = one_m->horizontalMatrixConcat(*two_m);
+    Matrix other = one_m->kroneckerMult(*two_m);
 
     return 0;
 }

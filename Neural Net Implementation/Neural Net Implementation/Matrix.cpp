@@ -104,22 +104,29 @@ Matrix Matrix::hadamardMult(Matrix b){
     return Matrix(result);
 }
 
-// this could be a bit trickier, i'll try it tomorrow
-//Matrix Matrix::kroneckerMult(Matrix b){
-//    
-//    vector<vector<double>> other = b.getUnderlying();
-//    vector<vector<double>> result (this->arr.size(), vector<double>(this->arr[0].size()));
-//    
-//    for(int i = 0; i < this->arr.size(); i++){
-//        for(int j = 0; j < this->arr[0].size(); j++){
-//            result[i][j] = this->arr[i][j] * other[i][j];
-//        }
-//    }
-//    
-//    return Matrix(result);
-//}
-
-//result of doing a hadamard multiply on this and another matrix
+//result of doing a Kronecker multiplication on this and another matrix
+Matrix Matrix::kroneckerMult(Matrix b){
+    
+    vector<vector<double>> otherArr = b.getUnderlying();
+    
+    int resultRows = (int)(this->arr.size() * otherArr.size());
+    int resultCols = (int)(this->arr[0].size() * otherArr[0].size());
+    
+    vector<vector<double>> result (resultRows, vector<double>(resultCols));
+    
+    for(int i = 0; i < this->arr.size(); i++){
+        for(int j = 0; j < this->arr[0].size(); j++){
+            
+            for(int a = 0; a < otherArr.size(); a++){
+                for(int b = 0; b < otherArr[0].size(); b++){
+                    result[(this->arr.size()*i)+a][(this->arr[0].size()*j)+b] = this->arr[i][j] * otherArr[a][b];
+                }
+            }
+        }
+    }
+    
+    return Matrix(result);
+}
 
 //concatenates the rows of two matrices
 Matrix Matrix::horizontalMatrixConcat(Matrix b){
