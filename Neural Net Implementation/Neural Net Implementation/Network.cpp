@@ -8,6 +8,7 @@
 
 #include "Network.hpp"
 #include <cmath>
+#include <random>
 
 Network::Network(int numClasses, string trainingLoc, string validationLoc, string testingLoc){
     this->numOutputClasses = numClasses;
@@ -79,17 +80,68 @@ Matrix Network::activationDerivative(Matrix a){
     return Matrix(arr);
 }
 
-
+//feed forward function
 pair<Matrix,Matrix> Network::feedForward(Matrix inputs, Matrix weights, Matrix bias){
  
     Matrix net = weights.mult(inputs.horizontalMatrixConcat(bias));
     Matrix output = activation(net);
     
     return pair<Matrix,Matrix>(net, output);
-    
 }
 
+//initialises a matrix of weights with a given width and height
+Matrix Network::weightInit(double maxWeight, double width, double height){
+    
+    mt19937 rng;
+    rng.seed(std::random_device()());
+    uniform_int_distribution<std::mt19937::result_type> dist(-maxWeight, maxWeight);
+    
+    
+    vector<vector<double>> arr(height,vector<double>(width));
+    
+    for(int i = 0; i < height; i++){
+        for(int j = 0; j < width; j++){
+            arr[i][j]  = dist(rng);
+        }
+    }
+    return Matrix(arr);
+}
 
+//a lot of debugging will need to happen here
+pair<double,double> Network::evaluate(Matrix inputs, Matrix weights, Matrix targetOutputs, Matrix targetClasses, Matrix bias){
+    
+    //[output net] = feedforward(inputs, weights, bias)
+    Matrix outputs = (feedForward(inputs, weights, bias)).second;
+    
+    //error = sum_all_components((target_outputs – outputs)^2) / (sample_count * output_count)
+    Matrix diffMatrix = targetOutputs.subtract(outputs);
+    diffMatrix = diffMatrix.mult(diffMatrix);
+    double errorSum = diffMatrix.getAbsoluteVal();
+    //this could be wrong, test this later, it's different from the guide
+    errorSum /= (2 * inputs.getUnderlying().size());
+    
+    //classes = classes_from_output_vectors(outputs)
+
+    vector<vector<double>> outputsVector = outputs.getUnderlying();
+    vector<double> classes(outputsVector.size());
+    
+    for(int i = 0; i < outputsVector.size(); i++){
+        classes[i] = outputToClass(outputsVector[i]);
+    }
+    
+    //c = sum_all_components(classes != target_classes)/sample_count
+    vector<vector<double>> targetClassesVector = targetClasses.getUnderlying();
+    double sumDiff = 0;
+    
+    for(int i = 0; i < classes.size(); i++){
+        if(classes[i] != outputToClass(targetClassesVector[i]))
+            sumDiff++;
+    }
+    
+    sumDiff /= outputsVector.size();
+    
+    return pair<double,double>(errorSum, sumDiff);
+}
 
 
 

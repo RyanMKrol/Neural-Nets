@@ -23,6 +23,7 @@ vector<vector<double>> Matrix::getUnderlying(){
     return this->arr;
 }
 
+
 //returns the transposed matrix
 Matrix Matrix::transpose(){
     
@@ -40,6 +41,20 @@ Matrix Matrix::transpose(){
     return Matrix(newArr);
 }
 
+//get the value of all of the elements summed
+double Matrix::getAbsoluteVal() {
+    
+    double val = 0;
+    
+    for(int i = 0; i < this->arr.size(); i++){
+        for(int j = 0; j < this->arr[0].size(); j++){
+            val+= this->arr[i][j];
+        }
+    }
+    
+    return val;
+}
+
 //adds this matrix to another
 Matrix Matrix::add(Matrix b){
     
@@ -49,6 +64,21 @@ Matrix Matrix::add(Matrix b){
     for(int i = 0; i < otherUnderlying.size(); i++){
         for(int j = 0; j < otherUnderlying[0].size(); j++){
             result[i][j] = this->arr[i][j] + otherUnderlying[i][j];
+        }
+    }
+    
+    return Matrix(result);
+}
+
+//subtracts another matrix from this one
+Matrix Matrix::subtract(Matrix b){
+    
+    vector<vector<double>> otherUnderlying = b.getUnderlying();
+    vector<vector<double>> result (otherUnderlying.size(), vector<double>(otherUnderlying[0].size()));
+    
+    for(int i = 0; i < otherUnderlying.size(); i++){
+        for(int j = 0; j < otherUnderlying[0].size(); j++){
+            result[i][j] = this->arr[i][j] - otherUnderlying[i][j];
         }
     }
     

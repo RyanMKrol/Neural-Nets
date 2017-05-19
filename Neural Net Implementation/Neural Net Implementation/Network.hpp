@@ -25,8 +25,11 @@ public:
     vector<double> classToOutput(int);
     Matrix activation(Matrix);
     Matrix activationDerivative(Matrix);
+    Matrix weightInit(double,double,double);
     pair<Matrix,Matrix> feedForward(Matrix,Matrix, Matrix);
+    pair<double,double> evaluate(Matrix,Matrix, Matrix,Matrix,Matrix);
     Network(int, string, string, string);
+    
     ~Network();
 };
 

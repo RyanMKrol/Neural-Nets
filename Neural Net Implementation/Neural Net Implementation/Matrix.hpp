@@ -22,7 +22,9 @@ class Matrix {
     public:
     vector<vector<double>> getUnderlying();
     Matrix transpose();
+    double getAbsoluteVal();
     Matrix add(Matrix);
+    Matrix subtract(Matrix);
     Matrix scalarMult(double);
     Matrix mult(Matrix);
     Matrix hadamardMult(Matrix);
