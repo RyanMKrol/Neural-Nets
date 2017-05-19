@@ -10,6 +10,9 @@
 #include <vector>
 #include "Matrix.hpp"
 #include "Network.hpp"
+#include <sstream>
+#include <string>
+#include <fstream>
 
 using namespace std;
 
@@ -17,18 +20,29 @@ int main(int argc, const char * argv[]) {
     // insert code here...
     std::cout << "Hello, World!\n";
     
-    vector<vector<double>> one = {{1,2},{3,4}};
-    vector<vector<double>> two = {{0,5},{6,7}};
-    vector<vector<double>> three = {{1,0,0,0}};
+    std::ifstream infile("iris_test.dat");
+    std::string line;
     
-    Matrix*one_m = new Matrix(one);
-    Matrix*two_m = new Matrix(two);
-    Matrix*three_m = new Matrix(three);
+    vector<vector<double>>inputs;
+    vector<vector<double>>outputs;
     
-    Matrix other = one_m->kroneckerMult(*two_m);
-    cout << netThing.outputToClass(*three_m) << endl;
-
+    while (std::getline(infile, line)) {
+        
+        cout << line << endl;
+        std::istringstream iss(line);
+        double a, b, c, d, e, f, g;
+        if (iss >> a >> b >> c >> d >> e >> f >> g) {
+            inputs.push_back({a,b,c,d});
+            outputs.push_back({e,f,g});
+        } else {
+            break;
+        }
+    }
     
+    Matrix thing = Matrix(inputs);
     
+    Network thingNet = Network(3,"iris_test.dat", "iris_validation.dat", "iris_training.dat");
+    Matrix other = thingNet.activation(thing);
+    other = thingNet.activationDerivative(thing);
     return 0;
 }

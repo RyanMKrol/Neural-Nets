@@ -8,13 +8,14 @@
 
 #include "DataSet.hpp"
 
+//constructor
 DataSet::DataSet(string trainingLoc, string validationLoc, string testingLoc){
-    
     trainingSet = new NetSet(trainingLoc);
     validationSet = new NetSet(validationLoc);
     testingSet = new NetSet(testingLoc);
 }
 
+//destructor
 DataSet::~DataSet(){
     free(this->trainingSet);
     free(this->validationSet);

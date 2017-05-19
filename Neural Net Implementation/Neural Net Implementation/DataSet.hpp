@@ -28,26 +28,3 @@ public:
 };
 
 #endif /* DataSet_hpp */
-
-
-//data_set
-//input_count
-//output_count
-//training_set
-//inputs
-//outputs
-//classes
-//count
-//bias
-//validation_set
-//inputs
-//outputs
-//classes
-//count
-//bias
-//test_set
-//inputs
-//outputs
-//classes
-//count
-//bias

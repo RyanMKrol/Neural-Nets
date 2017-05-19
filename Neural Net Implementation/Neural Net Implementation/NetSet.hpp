@@ -14,14 +14,13 @@
 
 class NetSet{
     Matrix inputs;
-    Matrix* outputs;
+    Matrix outputs;
     Matrix classes;
     int count;
     Matrix bias;
     
 public:
     NetSet(string);
-    ~NetSet();
 };
 
 #endif /* NetSet_hpp */

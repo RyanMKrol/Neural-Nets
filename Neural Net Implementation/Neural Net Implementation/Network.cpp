@@ -7,6 +7,7 @@
 //
 
 #include "Network.hpp"
+#include <cmath>
 
 Network::Network(int numClasses, string trainingLoc, string validationLoc, string testingLoc){
     this->numOutputClasses = numClasses;
@@ -29,6 +30,7 @@ int Network::outputToClass(vector<double> result){
     
 }
 
+//turn a class number into an output vector
 vector<double> Network::classToOutput(int classNum) {
     
     vector<double> result(this->numOutputClasses,0);
@@ -38,10 +40,67 @@ vector<double> Network::classToOutput(int classNum) {
     return result;
 }
 
-void loadData(string trainingDataLoc, string validationDataLoc, string testingDataLoc){
+//applies the activation function to a matrix, component-wise
+Matrix Network::activation(Matrix a) {
     
+    vector<vector<double>> arr = a.getUnderlying();
     
+    for(int i = 0; i < arr.size(); i++){
+        for(int j = 0; j < arr[0].size(); j++){
+            
+            double val = arr[i][j];
+            val = tanh(val);
+            val++;
+            val /= 2;
+            arr[i][j] = val;
+        }
+    }
     
+    return Matrix(arr);
+}
+
+//applies derivative of the activation function to a matrix, component-wise
+Matrix Network::activationDerivative(Matrix a){
     
+    vector<vector<double>> arr = a.getUnderlying();
+    
+    for(int i = 0; i < arr.size(); i++){
+        for(int j = 0; j < arr[0].size(); j++){
+            
+            double val = arr[i][j];
+            val = tanh(val);
+            val = pow(val,2);
+            val = 1 - val;
+            val /= 2;
+            arr[i][j] = val;
+        }
+    }
+    
+    return Matrix(arr);
+}
+
+
+pair<Matrix,Matrix> Network::feedForward(Matrix inputs, Matrix weights, Matrix bias){
+ 
+    Matrix net = weights.mult(inputs.horizontalMatrixConcat(bias));
+    Matrix output = activation(net);
+    
+    return pair<Matrix,Matrix>(net, output);
     
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

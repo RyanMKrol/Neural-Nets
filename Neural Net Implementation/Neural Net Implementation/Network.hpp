@@ -23,7 +23,9 @@ public:
 
     int outputToClass(vector<double>);
     vector<double> classToOutput(int);
-    void loadData(string,string,string);
+    Matrix activation(Matrix);
+    Matrix activationDerivative(Matrix);
+    pair<Matrix,Matrix> feedForward(Matrix,Matrix, Matrix);
     Network(int, string, string, string);
     ~Network();
 };
