@@ -8,16 +8,28 @@
 
 #include "Network.hpp"
 
+
+Network::Network(int numClasses){
+    this->numOutputClasses = numClasses;
+}
+
 //assumes the matrix has 1 row
-int Network::outputToClass(Matrix result){
+int Network::outputToClass(vector<double> result){
     
-    vector<vector<double>> arr = result.getUnderlying();
-    
-    for(int i = 0; i < arr[0].size(); i++){
-        if(arr[0][i] != 0)
+    for(int i = 0; i < result.size(); i++){
+        if(result[i] != 0)
             return i + 1;
     }
     
     return 0;
     
+}
+
+vector<double> Network::classToOutput(int classNum) {
+    
+    vector<double> result(this->numOutputClasses,0);
+    result[classNum-1] = 1;
+    
+    
+    return result;
 }

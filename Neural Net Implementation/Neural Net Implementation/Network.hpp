@@ -14,9 +14,12 @@
 
 class Network{
     
+    int numOutputClasses;
 public:
 
-    int outputToClass(Matrix);
+    int outputToClass(vector<double>);
+    vector<double> classToOutput(int);
+    Network(int);
     
 //    train
 //    load data
