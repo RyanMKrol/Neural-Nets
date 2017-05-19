@@ -63,11 +63,33 @@ Matrix Matrix::scalarMult(double val){
     return Matrix(result);
 }
 
-//Matrix transpose();
-//Matrix add(Matrix);
-//Matrix scalarMult(double);
+//result of multiplying this matrix by another. this assumes that the matrices are compatible
+Matrix Matrix::mult(Matrix b){
+    
+    vector<vector<double>> other = b.getUnderlying();
+    
+    int newRows = (int)this->arr.size();
+    int newCols = (int)other[0].size();
+    
+    vector<vector<double>> result (newRows, vector<double>(newCols));
+    
+    
+    double val;
+    for(int i = 0; i < newRows; i++){
+        for(int j = 0; j < newCols; j++){
+            val = 0;
+            for(int k = 0; k < this->arr[0].size();k++){
+                cout << this->arr[i][k] << endl;
+                cout << other[k][j] << endl;
+                val += this->arr[i][k] * other[k][j];
+            }
+            result[i][j] = val;
+        }
+    }
+    
+    return Matrix(result);
+}
 //Matrix mult(Matrix);
 //Matrix hadamardMult(Matrix);
 //Matrix kroneckerMult(Matrix);
 //Matrix horizontalMatrixConcat();
-//Matrix(vector<vector>);
