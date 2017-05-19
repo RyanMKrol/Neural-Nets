@@ -143,8 +143,10 @@ pair<double,double> Network::evaluate(Matrix inputs, Matrix weights, Matrix targ
     return pair<double,double>(errorSum, sumDiff);
 }
 
-
-
+//dummy backprop function
+Matrix Network::backProp(Matrix inputs, Matrix weights, double learningRate, vector<double> bias){
+    return weights;
+}
 
 
 
