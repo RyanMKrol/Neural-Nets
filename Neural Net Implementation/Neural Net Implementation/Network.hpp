@@ -26,6 +26,7 @@ public:
     Matrix activation(Matrix);
     Matrix activationDerivative(Matrix);
     Matrix weightInit(double,double,double);
+    pair<Matrix,vector<double>> train();
     pair<Matrix,Matrix> feedForward(Matrix,Matrix, Matrix);
     Matrix backProp(Matrix,Matrix,double,vector<double>);
     pair<double,double> evaluate(Matrix,Matrix, Matrix,Matrix,Matrix);

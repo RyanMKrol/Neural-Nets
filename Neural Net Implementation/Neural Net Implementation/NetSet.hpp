@@ -21,6 +21,12 @@ class NetSet{
     
 public:
     NetSet(string);
+    
+    Matrix getInputs()const {return this->inputs;};
+    Matrix getOutputs()const {return this->outputs;};
+    Matrix getClasses()const {return this->classes;};
+    Matrix getBias()const {return this->bias;};
+    int getCount()const {return this->count;};
 };
 
 #endif /* NetSet_hpp */

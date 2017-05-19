@@ -39,6 +39,6 @@ NetSet::NetSet(string dataLoc){
     
     this->classes = blankMatrix;
     this->bias = blankMatrix;
-    this->count = 0;
+    this->count = (int)inputs.size();
 
 }

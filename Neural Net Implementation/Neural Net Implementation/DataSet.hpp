@@ -23,6 +23,9 @@ class DataSet {
     
 public:
     DataSet(string,string,string);
+    NetSet* getTrainingSet() const {return this->trainingSet;};
+    NetSet* getValidationSet() const {return this->validationSet;};
+    NetSet* getTestingSet() const {return this->testingSet;};
     ~DataSet();
     
 };

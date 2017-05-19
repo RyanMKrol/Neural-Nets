@@ -148,7 +148,21 @@ Matrix Network::backProp(Matrix inputs, Matrix weights, double learningRate, vec
     return weights;
 }
 
-
+pair<Matrix,vector<double>> Network::train(){
+    
+    bool plotGraphs = true;
+    
+    NetSet *trainingSet = this->data->getTrainingSet();
+    NetSet *validationSet = this->data->getValidationSet();
+    NetSet *testingSet = this->data->getTestingSet();
+    
+    Matrix trainingWeights = weightInit(0.5, 1, trainingSet->getCount());
+    
+    vector<double>bias_training(trainingSet->getCount(),1);
+    vector<double>bias_validation(validationSet->getCount(),1);
+    vector<double>bias_testing(testingSet->getCount(),1);
+    
+}
 
 
 
