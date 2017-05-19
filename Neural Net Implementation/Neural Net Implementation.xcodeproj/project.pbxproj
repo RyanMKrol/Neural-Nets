@@ -260,6 +260,7 @@
 				CDC8A9F31ECE40ED0041CACA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
