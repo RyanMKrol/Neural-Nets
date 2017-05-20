@@ -7,9 +7,57 @@
 //
 
 #include <iostream>
+#include <vector>
+#include "Net.hpp"
+
+#include <sstream>
+#include <string>
+#include <fstream>
+
+
+using namespace std;
 
 int main(int argc, const char * argv[]) {
-    // insert code here...
-    std::cout << "Hello, World!\n";
+    
+    
+    std::ifstream infile("trainingData.txt");
+    std::string line;
+    
+    vector<vector<double>>inputs;
+    vector<vector<double>>outputs;
+    
+    //reads in the file and creates the matrices
+    while (std::getline(infile, line)) {
+        std::istringstream iss(line);
+        double a, b, c;
+        if (iss >> a >> b >> c) {
+            inputs.push_back({a,b});
+            outputs.push_back({c});
+        } else {
+            break;
+        }
+    }
+    
+    vector<unsigned int> topology;
+    topology.push_back(2);
+    topology.push_back(4);
+    topology.push_back(1);
+    Net myNet(topology);
+    
+    vector<vector<double>>resultVals;
+    vector<double>result;
+    
+    for(int i = 0; i < inputs.size(); i++){
+        myNet.feedForward(inputs[i]);
+        myNet.backProp(outputs[i]);
+        myNet.getResults(result);
+        resultVals.push_back(result);
+        cout << "Net recent average error: " << myNet.getRecentAverageError() << endl;
+    }
+    
+//    for(int i = 0; i < resultVals.size();i++){
+//        cout << resultVals[i][0] << " " << outputs[i][0] << endl;
+//    }
+    
     return 0;
 }

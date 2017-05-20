@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		CDE4292F1ECFA24E00F46533 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CDE4292E1ECFA24E00F46533 /* main.cpp */; };
+		CDE429371ECFA37800F46533 /* Net.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CDE429351ECFA37800F46533 /* Net.cpp */; };
+		CDE4293A1ECFA68200F46533 /* Neuron.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CDE429381ECFA68200F46533 /* Neuron.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +27,10 @@
 /* Begin PBXFileReference section */
 		CDE4292B1ECFA24E00F46533 /* Neural Net 2.0 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Neural Net 2.0"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDE4292E1ECFA24E00F46533 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		CDE429351ECFA37800F46533 /* Net.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Net.cpp; sourceTree = "<group>"; };
+		CDE429361ECFA37800F46533 /* Net.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Net.hpp; sourceTree = "<group>"; };
+		CDE429381ECFA68200F46533 /* Neuron.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Neuron.cpp; sourceTree = "<group>"; };
+		CDE429391ECFA68200F46533 /* Neuron.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Neuron.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +64,10 @@
 			isa = PBXGroup;
 			children = (
 				CDE4292E1ECFA24E00F46533 /* main.cpp */,
+				CDE429351ECFA37800F46533 /* Net.cpp */,
+				CDE429361ECFA37800F46533 /* Net.hpp */,
+				CDE429381ECFA68200F46533 /* Neuron.cpp */,
+				CDE429391ECFA68200F46533 /* Neuron.hpp */,
 			);
 			path = "Neural Net 2.0";
 			sourceTree = "<group>";
@@ -120,6 +130,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				CDE4292F1ECFA24E00F46533 /* main.cpp in Sources */,
+				CDE429371ECFA37800F46533 /* Net.cpp in Sources */,
+				CDE4293A1ECFA68200F46533 /* Neuron.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
