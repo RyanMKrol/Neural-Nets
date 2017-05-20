@@ -17,6 +17,8 @@
 
 using namespace std;
 
+vector<unsigned> topology = {2,2,1};
+
 int main(int argc, const char * argv[]) {
     
     
@@ -38,11 +40,8 @@ int main(int argc, const char * argv[]) {
         }
     }
     
-    vector<unsigned int> topology;
-    topology.push_back(2);
-    topology.push_back(4);
-    topology.push_back(1);
-    Net myNet(topology);
+    Net myNet("netWeights.txt");
+//    Net myNet(topology);
     
     vector<vector<double>>resultVals;
     vector<double>result;
@@ -52,8 +51,14 @@ int main(int argc, const char * argv[]) {
         myNet.backProp(outputs[i]);
         myNet.getResults(result);
         resultVals.push_back(result);
-        cout << "Net recent average error: " << myNet.getRecentAverageError() << endl;
+    
+//        cout << inputs[i][0] << " " << inputs[i][1] << endl;
+        cout << "expected output: " << outputs[i][0] << endl << "returned result: " << result[0] << endl << endl;
+        
+//        cout << "Net recent average error: " << myNet.getRecentAverageError() << endl;
     }
+    
+//    myNet.outputLayers("netWeights.txt");
     
 //    for(int i = 0; i < resultVals.size();i++){
 //        cout << resultVals[i][0] << " " << outputs[i][0] << endl;

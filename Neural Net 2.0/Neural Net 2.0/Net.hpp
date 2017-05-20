@@ -12,6 +12,9 @@
 #include <stdio.h>
 #include <vector>
 #include <iostream>
+#include <sstream>
+#include <string>
+#include <fstream>
 #include "Neuron.hpp"
 
 using namespace std;
@@ -20,10 +23,12 @@ class Net
 {
 public:
     Net(const vector<unsigned> &topology);
+    Net(string);
     void feedForward(const vector<double> &inputVals);
     void backProp(const vector<double> &targetVals);
     void getResults(vector<double> &resultVals) const;
     double getRecentAverageError(void) const { return m_recentAverageError; }
+    void outputLayers(const string) const;
     
 private:
     vector<Layer> m_layers; // m_layers[layerNum][neuronNum]

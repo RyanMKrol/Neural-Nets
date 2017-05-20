@@ -8,8 +8,8 @@
 
 #include "Neuron.hpp"
 
-double Neuron::eta = 0.15;    // overall net learning rate, [0.0..1.0]
-double Neuron::alpha = 0.25;   // momentum, multiplier of last deltaWeight, [0.0..1.0]
+double Neuron::eta = 0.05;    // overall net learning rate, [0.0..1.0]
+double Neuron::alpha = 0.1;   // momentum, multiplier of last deltaWeight, [0.0..1.0]
 
 
 void Neuron::updateInputWeights(Layer &prevLayer)
@@ -93,6 +93,15 @@ Neuron::Neuron(unsigned numOutputs, unsigned myIndex)
     for (unsigned c = 0; c < numOutputs; ++c) {
         m_outputWeights.push_back(Connection());
         m_outputWeights.back().weight = randomWeight();
+    }
+    
+    m_myIndex = myIndex;
+}
+
+Neuron::Neuron(unsigned numOutputs, unsigned myIndex, vector<double>weights){
+    for (unsigned c = 0; c < numOutputs; ++c) {
+        m_outputWeights.push_back(Connection());
+        m_outputWeights.back().weight = weights[c];
     }
     
     m_myIndex = myIndex;

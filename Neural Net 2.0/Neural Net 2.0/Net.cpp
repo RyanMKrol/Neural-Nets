@@ -8,6 +8,7 @@
 
 #include "Net.hpp"
 #include <cassert>
+#include <fstream>
 
 double Net::m_recentAverageSmoothingFactor = 100.0; // Number of training samples to average over
 
@@ -49,7 +50,7 @@ void Net::backProp(const vector<double> &targetVals)
     
     // Calculate hidden layer gradients
     
-    for (unsigned layerNum = m_layers.size() - 2; layerNum > 0; --layerNum) {
+    for (unsigned layerNum = (unsigned)m_layers.size() - 2; layerNum > 0; --layerNum) {
         Layer &hiddenLayer = m_layers[layerNum];
         Layer &nextLayer = m_layers[layerNum + 1];
         
@@ -61,7 +62,7 @@ void Net::backProp(const vector<double> &targetVals)
     // For all layers from outputs to first hidden layer,
     // update connection weights
     
-    for (unsigned layerNum = m_layers.size() - 1; layerNum > 0; --layerNum) {
+    for (unsigned layerNum = (unsigned)m_layers.size() - 1; layerNum > 0; --layerNum) {
         Layer &layer = m_layers[layerNum];
         Layer &prevLayer = m_layers[layerNum - 1];
         
@@ -89,9 +90,8 @@ void Net::feedForward(const vector<double> &inputVals)
     }
 }
 
-Net::Net(const vector<unsigned> &topology)
-{
-    unsigned numLayers = topology.size();
+Net::Net(const vector<unsigned> &topology) {
+    unsigned numLayers = (unsigned)topology.size();
     for (unsigned layerNum = 0; layerNum < numLayers; ++layerNum) {
         m_layers.push_back(Layer());
         unsigned numOutputs = layerNum == topology.size() - 1 ? 0 : topology[layerNum + 1];
@@ -105,5 +105,72 @@ Net::Net(const vector<unsigned> &topology)
         
         // Force the bias node's output to 1.0 (it was the last neuron pushed in this layer):
         m_layers.back().back().setOutputVal(1.0);
+    }
+}
+
+Net::Net(const string fileLoc) {
+    
+    ifstream infile(fileLoc);
+    vector<unsigned> topology;
+    
+    double a;
+    double b;
+    
+    infile >> a;
+    
+    for(int i = 0; i < a; i++){
+        infile >> b;
+        topology.push_back(b);
+    }
+    
+    unsigned numLayers = (unsigned)topology.size();
+    for (unsigned layerNum = 0; layerNum < numLayers; ++layerNum) {
+        m_layers.push_back(Layer());
+        unsigned numOutputs = layerNum == topology.size() - 1 ? 0 : topology[layerNum + 1];
+        
+        // We have a new layer, now fill it with neurons, and
+        // add a bias neuron in each layer.
+        for (unsigned neuronNum = 0; neuronNum <= topology[layerNum]; ++neuronNum) {
+            
+            vector<double> neuronWeights;
+            
+            for(int i = 0; i < numOutputs; i++){
+                infile >> b;
+                neuronWeights.push_back(b);
+            }
+            
+            m_layers.back().push_back(Neuron(numOutputs, neuronNum, neuronWeights));
+            
+            cout << "Made a Neuron!" << endl;
+        }
+    }
+    
+}
+
+void Net::outputLayers(const string fileLoc) const {
+    
+    ofstream file;
+    file.open (fileLoc, ios::out | ios::trunc);
+    
+    file << m_layers.size() << "\n";
+    
+    for(int i = 0; i < m_layers.size(); i++){
+        file << m_layers[i].size() - 1 << " ";
+    }
+    
+    file << "\n";
+    
+    if (file.is_open()) {
+        for(int i = 0; i < m_layers.size() - 1; i++){
+            for(int n = 0; n < m_layers[i].size(); n++){
+                for(int w = 0; w < m_layers[i][n].getOutputWeights().size(); w++){
+                    cout << m_layers[i][n].getOutputWeights()[w].weight << " " << endl;
+                    file << m_layers[i][n].getOutputWeights()[w].weight << " ";
+                }
+                file << "\n";
+            }
+        }
+        
+        file.close();
     }
 }
