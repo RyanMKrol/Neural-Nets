@@ -90,6 +90,7 @@ void Net::feedForward(const vector<double> &inputVals)
     }
 }
 
+//creates a new blank network
 Net::Net(const vector<unsigned> &topology) {
     unsigned numLayers = (unsigned)topology.size();
     for (unsigned layerNum = 0; layerNum < numLayers; ++layerNum) {
@@ -108,6 +109,7 @@ Net::Net(const vector<unsigned> &topology) {
     }
 }
 
+//creates a new net using previously trained weights
 Net::Net(const string fileLoc) {
     
     ifstream infile(fileLoc);
@@ -143,10 +145,12 @@ Net::Net(const string fileLoc) {
             
             cout << "Made a Neuron!" << endl;
         }
+        cout << endl;
     }
     
 }
 
+//outputs the networks weights to a file
 void Net::outputLayers(const string fileLoc) const {
     
     ofstream file;
